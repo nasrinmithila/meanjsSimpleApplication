@@ -34,22 +34,8 @@ There are several ways you can get the MEAN.JS boilerplate:
 The recommended way to get MEAN.js is to use git to directly clone the MEAN.JS repository:
 
 ```bash
-$ git clone https://github.com/meanjs/mean.git meanjs
+$ git clone git@github.com:nasrinmithila/meanjsSimpleApplication.git
 ```
-
-This will clone the latest version of the MEAN.JS repository to a **meanjs** folder.
-
-### Downloading The Repository Zip File
-Another way to use the MEAN.JS boilerplate is to download a zip copy from the [master branch on GitHub](https://github.com/meanjs/mean/archive/master.zip). You can also do this using the `wget` command:
-
-```bash
-$ wget https://github.com/meanjs/mean/archive/master.zip -O meanjs.zip; unzip meanjs.zip; rm meanjs.zip
-```
-
-Don't forget to rename **mean-master** after your project name.
-
-### Yo Generator
-Another way would be to use the [Official Yo Generator](http://meanjs.org/generator.html), which generates a copy of the MEAN.JS 0.4.x boilerplate and supplies an application generator to ease your daily development cycles.
 
 ## Quick Install
 Once you've downloaded the boilerplate and installed all the prerequisites, you're just a few steps away from starting to develop your MEAN application.
@@ -122,32 +108,6 @@ Finally, execute prod task `npm run start:prod`
 * enable/disable SSL mode in production environment change the `secure` option in `config/env/production.js`
 
 
-## Testing Your Application
-You can run the full test suite included with MEAN.JS with the test task:
-
-```bash
-$ npm test
-```
-This will run both the server-side tests (located in the `app/tests/` directory) and the client-side tests (located in the `public/modules/*/tests/`).
-
-To execute only the server tests, run the test:server task:
-
-```bash
-$ npm run test:server
-```
-
-To execute only the server tests and run again only changed tests, run the test:server:watch task:
-
-```bash
-$ npm run test:server:watch
-```
-
-And to run only the client tests, run the test:client task:
-
-```bash
-$ npm run test:client
-```
-
 ## Running your application with Gulp
 
 The MEAN.JS project integrates Gulp as build tools and task automation.
@@ -171,62 +131,3 @@ To run your application with *production* environment configuration, execute gul
 ```bash
 $ gulp prod
 ```
-
-It is also possible to run any Gulp tasks using npm's run command and therefore use locally installed version of gulp, for example: `npm run gulp eslint`
-
-## Development and deployment With Docker
-
-* Install [Docker](https://docs.docker.com/installation/#installation)
-* Install [Compose](https://docs.docker.com/compose/install/)
-
-* Local development and testing with compose:
-```bash
-$ docker-compose up
-```
-
-* Local development and testing with just Docker:
-```bash
-$ docker build -t mean .
-$ docker run -p 27017:27017 -d --name db mongo
-$ docker run -p 3000:3000 --link db:db_1 mean
-$
-```
-
-* To enable live reload, forward port 35729 and mount /app and /public as volumes:
-```bash
-$ docker run -p 3000:3000 -p 35729:35729 -v /Users/mdl/workspace/mean-stack/mean/public:/home/mean/public -v /Users/mdl/workspace/mean-stack/mean/app:/home/mean/app --link db:db_1 mean
-```
-
-### Production deploy with Docker
-
-* Production deployment with compose:
-```bash
-$ docker-compose -f docker-compose-production.yml up -d
-```
-
-* Production deployment with just Docker:
-```bash
-$ docker build -t mean -f Dockerfile-production .
-$ docker run -p 27017:27017 -d --name db mongo
-$ docker run -p 3000:3000 --link db:db_1 mean
-```
-
-## Getting Started With MEAN.JS
-You have your application running, but there is a lot of stuff to understand. We recommend you go over the [Official Documentation](http://meanjs.org/docs.html).
-In the docs we'll try to explain both general concepts of MEAN components and give you some guidelines to help you improve your development process. We tried covering as many aspects as possible, and will keep it updated by your request. You can also help us develop and improve the documentation by checking out the *gh-pages* branch of this repository.
-
-## Community
-* Use the [Official Website](http://meanjs.org) to learn about changes and the roadmap.
-* Join #meanjs on freenode.
-* Discuss it in the new [Google Group](https://groups.google.com/d/forum/meanjs)
-* Ping us on [Twitter](http://twitter.com/meanjsorg) and [Facebook](http://facebook.com/meanjs)
-
-## Contributing
-We welcome pull requests from the community! Just be sure to read the [contributing](https://github.com/meanjs/mean/blob/master/CONTRIBUTING.md) doc to get started.
-
-## Credits
-Inspired by the great work of [Madhusudhan Srinivasa](https://github.com/madhums/)
-The MEAN name was coined by [Valeri Karpov](http://blog.mongodb.org/post/49262866911/the-mean-stack-mongodb-expressjs-angularjs-and).
-
-## License
-[The MIT License](LICENSE.md)
