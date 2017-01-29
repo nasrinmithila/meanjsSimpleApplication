@@ -1,0 +1,27 @@
+<section>
+  <div class="page-header">
+    <h1>Aircraft Fleet</h1>
+  </div>
+  <div class="list-group">
+    <a ng-repeat="aircraft in vm.aircraft" ui-sref="aircraft.view({ aircraftId: aircraft._id })" class="list-group-item">
+      <small class="list-group-item-text">
+        Posted on
+        <span ng-bind="aircraft.created | date:'mediumDate'"></span>
+        by
+        <span ng-if="aircraft.user" ng-bind="aircraft.user.displayName"></span>
+        <span ng-if="!aircraft.user">Deleted User</span>
+      </small>
+      <h4 class="list-group-item-heading" data-ng-bind="aircraft.name"></h4>
+      <dl class="dl-horizontal">
+        <dt>Category:</dt>
+        <dd data-ng-bind="aircraft.category"></dd>
+        <dt>Seat Number:</dt>
+        <dd data-ng-bind="aircraft.seatNo">
+        <dt>Price:</dt>
+        <dd data-ng-bind="aircraft.price"> 
+        <dt>Airport:</dt>
+        <dd data-ng-bind="aircraft.airport">
+      </dl>
+    </a>
+  </div>
+</section>

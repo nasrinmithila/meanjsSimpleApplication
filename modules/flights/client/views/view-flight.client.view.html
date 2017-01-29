@@ -1,0 +1,15 @@
+<section>
+  <div class="page-header"> Departure Date:
+    <h4 ng-bind="vm.flight.date"></h4>
+  </div>
+  <dl class="dl-horizontal">
+    <dt>Departure airport:</dt>
+    <dd data-ng-bind="vm.flight.departureAirport">
+    <dt>Arrival airport:</dt>
+    <dd data-ng-bind="vm.flight.arrivalAirport">
+    <dt>Price:</dt>
+    <dd data-ng-bind="vm.flight.price"> 
+    <dt>Aircraft:</dt>
+    <dd data-ng-bind="vm.flight.aircraft.name"> 
+  </dl>
+</section>

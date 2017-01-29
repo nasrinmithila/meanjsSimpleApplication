@@ -1,0 +1,28 @@
+<section>
+  <div class="page-header">
+    <h1>Flights</h1>
+  </div>
+  <div class="list-group">
+    <a ng-repeat="flight in vm.flights" ui-sref="flights.view({ flightId: flight._id })" class="list-group-item">
+      <small class="list-group-item-text">
+        Posted on
+        <span ng-bind="flight.created | date:'mediumDate'"></span>
+        by
+        <span ng-if="flight.user" ng-bind="flight.user.displayName"></span>
+        <span ng-if="!flight.user">Deleted User</span>
+      </small>
+      <dl class="dl-horizontal">
+        <dt>Departure Date:</dt>
+        <dd data-ng-bind="flight.date"></dd>
+        <dt>Departure airport:</dt>
+        <dd data-ng-bind="flight.departureAirport">
+        <dt>Arrival airport:</dt>
+        <dd data-ng-bind="flight.arrivalAirport">
+        <dt>Price:</dt>
+        <dd data-ng-bind="flight.price"> 
+        <dt>Aircraft:</dt>
+        <dd ng-bind="flight.aircraft.name">
+      </dl>
+    </a>
+  </div>
+</section>

@@ -1,0 +1,59 @@
+<section>
+  <div class="page-header">
+    <h1>{{vm.flight._id ? 'Edit Flight' : 'New Flight'}}</h1>
+  </div>
+  <div class="pull-right">
+    <a ng-show="vm.flight._id" class="btn btn-primary" ng-click="vm.remove()">
+      <i class="glyphicon glyphicon-trash"></i>
+    </a>
+  </div>
+  <div class="col-md-12">
+    <form name="vm.form.flightForm" class="form-horizontal" ng-submit="vm.save(vm.form.flightForm.$valid)" novalidate>
+      <fieldset>
+        <div class="form-group" show-errors>
+          <label class="control-label" for="date">Departure Date</label>
+          <input ng-model="vm.flight.date" class="form-control" type="text" name="date" required placeholder="MM/DD/YYYY">
+          <div ng-messages="vm.form.flightForm.date.$error" role="alert">
+            <p class="help-block error-text" ng-message="required">Departure date is required.</p>
+          </div>
+        </div>
+
+        <div class="form-group" show-errors>
+          <label class="control-label" for="departureAirport">Departure Airport</label>
+          <input ng-model="vm.flight.departureAirport" class="form-control" type="text" name="departureAirport" required ng-pattern="/^[a-zA-Z\s]*$/">
+          <div ng-messages="vm.form.flightForm.departureAirport.$error" role="alert">
+            <p class="help-block error-text" ng-message="required">Departure airport is required.</p>
+          </div>
+        </div>
+
+        <div class="form-group" show-errors>
+          <label class="control-label" for="arrivalAirport">Arrival Airport</label>
+          <input ng-model="vm.flight.arrivalAirport" class="form-control" name="arrivalAirport" type="text" required ng-pattern="/^[a-zA-Z\s]*$/">
+          <div ng-messages="vm.form.flightForm.arrivalAirport.$error" role="alert">
+            <p class="help-block error-text" ng-message="required">Arrival airport is required.</p>
+          </div>
+        </div>
+
+        <div class="form-group" show-errors>
+          <label class="control-label" for="price">Price</label>
+          <input ng-model="vm.flight.price" class="form-control" type="text" name="price" positive-number required>
+          <div ng-messages="vm.form.flightForm.price.$error" role="alert">
+            <p class="help-block error-text" ng-message="required">Price is required.</p>
+          </div>
+        </div>
+
+        <div class="form-group" show-errors>
+          <label class="control-label" for="aircraft">Aircraft</label>
+          <select ng-model="vm.flight.aircraft" class="form-control selectPadding" name="aircraft" required ng-options="item.name for item in vm.aircraft"></select>
+          <div ng-messages="vm.form.flightForm.aircraft.$error" role="alert">
+            <p class="help-block error-text" ng-message="required">Aircraft is required.</p>
+          </div>
+        </div>
+       
+        <div class="form-group">
+          <button type="submit" class="btn btn-default">{{vm.flight._id ? 'Update' : 'Create'}}</button>
+        </div>
+      </fieldset>
+    </form>
+  </div>
+</section>

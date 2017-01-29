@@ -14,7 +14,11 @@ module.exports = {
       ],
       js: [
         // bower:js
+        'public/lib/lodash/lodash.js',
+        'public/lib/underscore/underscore.js',
         'public/lib/angular/angular.js',
+        'public/lib/moment/moment.js',
+        'public/lib/angular-moment/angular-moment.js',
         'public/lib/angular-animate/angular-animate.js',
         'public/lib/angular-bootstrap/ui-bootstrap-tpls.js',
         'public/lib/ng-file-upload/ng-file-upload.js',

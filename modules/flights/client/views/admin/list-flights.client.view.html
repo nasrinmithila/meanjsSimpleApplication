@@ -1,0 +1,29 @@
+﻿<section>
+  <div class="page-header">
+    <h1>
+      Flights
+      <a class="btn btn-primary pull-right" data-ui-sref="admin.flights.create">
+        <i class="glyphicon glyphicon-plus"></i>
+      </a>
+    </h1>
+  </div>
+  <div class="list-group">
+    <a data-ng-repeat="flight in vm.flights" data-ui-sref="admin.flights.edit({flightId: flight._id})" class="list-group-item">
+      <dl class="dl-horizontal">
+        <dt>Departure Date:</dt>
+        <dd data-ng-bind="flight.date"></dd>
+        <dt>Departure airport:</dt>
+        <dd data-ng-bind="flight.departureAirport">
+        <dt>Arrival airport:</dt>
+        <dd data-ng-bind="flight.arrivalAirport">
+        <dt>Price:</dt>
+        <dd data-ng-bind="flight.price"> 
+        <dt>Aircraft:</dt>
+        <dd ng-bind="flight.aircraft.name">
+      </dl>
+    </a>
+  </div>
+  <div class="alert alert-warning text-center" data-ng-if="flights.$resolved && !flights.length">
+    No flights yet, why don't you <a data-ui-sref="admin.flights.create">create one</a>?
+  </div>
+</section>
